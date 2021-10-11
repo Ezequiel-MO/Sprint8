@@ -9,12 +9,8 @@ const StarshipView = ({ starships }) => {
     <StarshipViewContainer>
       {starships
         .filter((starship) => starship.name === id)
-        .map(({ name, manufacturer }) => (
-          <StarshipFullDetails
-            key={name}
-            name={name}
-            manufacturer={manufacturer}
-          />
+        .map((starship) => (
+          <StarshipFullDetails key={starship.name} starship={starship} />
         ))}
     </StarshipViewContainer>
   );

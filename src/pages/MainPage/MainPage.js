@@ -1,5 +1,5 @@
 import { StarshipContainer } from "./styles";
-import StarshipCard from "../../components/Header/StarshipCard/StarshipCard";
+import StarshipCard from "../../components/StarshipCard/StarshipCard";
 import { useEffect } from "react";
 
 const MainPage = ({ starships, loading, setCurrentPage }) => {
