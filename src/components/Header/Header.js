@@ -18,7 +18,9 @@ const Header = () => {
       </UpperHeader>
       <HeaderMenu>
         <HomeMenu>HOME</HomeMenu>
-        <StarshipMenu onClick={() => history.push("/")}>STARSHIPS</StarshipMenu>
+        <StarshipMenu onClick={() => history.push("/main")}>
+          STARSHIPS
+        </StarshipMenu>
       </HeaderMenu>
     </HeaderContainer>
   );

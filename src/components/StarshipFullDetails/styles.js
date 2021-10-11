@@ -24,11 +24,9 @@ export const Description = styled.div`
 `;
 
 export const Left = styled.div`
-  grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column: 1/3;
 `;
 
 export const Right = styled.div`
-  grid-column-start: 4;
-  grid-column-end: 6;
+  grid-column: 4/6;
 `;

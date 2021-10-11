@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import StarshipView from "./pages/StarshipViews/StarshipView";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Login from "./pages/Login/Login";
 
 function App() {
   const [starships, setStarships] = useState([]);
@@ -47,12 +48,15 @@ function App() {
         <Route path='/starships/:id'>
           <StarshipView starships={starships} />
         </Route>
-        <Route path='/'>
+        <Route path='/main'>
           <MainPage
             starships={starships}
             loading={loading}
             setCurrentPage={setCurrentPage}
           />
+        </Route>
+        <Route path='/'>
+          <Login />
         </Route>
       </Switch>
     </Router>
