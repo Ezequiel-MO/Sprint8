@@ -1,41 +1,31 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { StarshipContainer } from "./styles";
 import StarshipCard from "../../components/Header/StarshipCard/StarshipCard";
+import { useEffect } from "react";
 
-const MainPage = () => {
-  const [starships, setStarships] = useState([]);
-
-  const starshipsURL = axios.create({
-    baseURL: "https://swapi.dev/api/starships",
-    timeout: 1000,
-  });
-
+const MainPage = ({ starships, loading, setCurrentPage }) => {
   useEffect(() => {
-    console.log(starships);
-  }, [starships]);
-
-  useEffect(() => {
-    async function getStarships() {
-      try {
-        let {
-          data: { results },
-        } = await starshipsURL.get("/");
-        setStarships(results);
-      } catch (err) {
-        console.error("error");
+    //consultar pq no funciona el evento onScroll
+    window.addEventListener("scroll", () => {
+      const { scrollHeight, scrollTop, clientHeight } =
+        document.documentElement;
+      if (scrollHeight - scrollTop === clientHeight) {
+        setCurrentPage((prevState) => prevState + 1);
       }
-    }
-    getStarships();
-    // eslint-disable-next-line
-  }, []);
+    });
+  }, [setCurrentPage]);
 
   return (
-    <StarshipContainer>
-      {starships?.map(({ name, model }) => (
-        <StarshipCard key={name} name={name} model={model} />
-      ))}
-    </StarshipContainer>
+    <>
+      {loading ? (
+        <h1>Loading ...</h1>
+      ) : (
+        <StarshipContainer>
+          {starships?.map(({ name, model }) => (
+            <StarshipCard key={name} name={name} model={model} />
+          ))}
+        </StarshipContainer>
+      )}
+    </>
   );
 };
 

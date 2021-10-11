@@ -6,8 +6,10 @@ import {
   StarshipMenu,
 } from "./styles";
 import logo from "../../assets/StarwarsLogo.jpg";
+import { useHistory } from "react-router-dom";
 
 const Header = () => {
+  const history = useHistory();
   return (
     <HeaderContainer>
       <UpperHeader>
@@ -16,7 +18,7 @@ const Header = () => {
       </UpperHeader>
       <HeaderMenu>
         <HomeMenu>HOME</HomeMenu>
-        <StarshipMenu>STARSHIPS</StarshipMenu>
+        <StarshipMenu onClick={() => history.push("/")}>STARSHIPS</StarshipMenu>
       </HeaderMenu>
     </HeaderContainer>
   );
