@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import StarshipView from "./pages/StarshipViews/StarshipView";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import SignUp from "./pages/SignUp/SignUp";
 import Login from "./pages/Login/Login";
 
 function App() {
@@ -55,8 +56,11 @@ function App() {
             setCurrentPage={setCurrentPage}
           />
         </Route>
-        <Route path='/'>
+        <Route path='/login'>
           <Login />
+        </Route>
+        <Route path='/'>
+          <SignUp />
         </Route>
       </Switch>
     </Router>

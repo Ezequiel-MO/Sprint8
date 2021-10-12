@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export const LoginContainer = styled.div`
+export const SignUpContainer = styled.div`
   height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-export const LoginBox = styled.div`
+export const SignUpBox = styled.div`
   background-color: #333;
   border-radius: 1rem;
   height: 20rem;
@@ -18,11 +18,11 @@ export const LoginBox = styled.div`
   justify-content: space-around;
 `;
 
-export const LoginTitle = styled.div`
+export const SignUpTitle = styled.div`
   text-align: center;
 `;
 
-export const LoginForm = styled.form`
+export const SignUpForm = styled.form`
   height: 20rem;
   display: flex;
   flex-direction: column;
@@ -30,7 +30,7 @@ export const LoginForm = styled.form`
   align-items: center;
 `;
 
-export const LoginInputs = styled.div`
+export const SignUpInputs = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -47,7 +47,7 @@ export const LoginInputs = styled.div`
   }
 `;
 
-export const LoginButton = styled.button`
+export const SignUpButton = styled.button`
   width: 10rem;
   padding: 1rem;
   font-size: 1.2rem;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -18,8 +19,18 @@ export const UpperHeader = styled.div`
     height: 5.5rem;
     left: 43.5%;
   }
-  & h4 {
-    margin-right: 2rem;
+`;
+
+export const StyledLink = styled(Link)`
+  margin: 1rem;
+  text-decoration: none;
+  color: #ccc;
+  &:hover {
+    color: #fff;
+    cursor: pointer;
+  }
+  &:active {
+    border-bottom: 3px solid orangered;
   }
 `;
 

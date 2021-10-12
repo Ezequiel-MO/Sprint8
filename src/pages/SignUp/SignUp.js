@@ -1,15 +1,15 @@
 import {
-  LoginContainer,
-  LoginBox,
-  LoginTitle,
-  LoginButton,
-  LoginForm,
-  LoginInputs,
+  SignUpContainer,
+  SignUpBox,
+  SignUpTitle,
+  SignUpButton,
+  SignUpForm,
+  SignUpInputs,
 } from "./styles";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const Login = () => {
+const SignUp = () => {
   const history = useHistory();
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
@@ -18,9 +18,19 @@ const Login = () => {
     JSON.parse(localStorage.getItem("registered emails")) || []
   );
 
+  const updateLocalStorage = () =>
+    localStorage.setItem("registered emails", JSON.stringify(registeredEmails));
+
   useEffect(() => {
     access && history.push("/main");
   }, [access]);
+
+  useEffect(() => {
+    updateLocalStorage();
+  }, [registeredEmails]);
+
+  const addEmailToArray = (email) =>
+    setRegisteredEmails((prevState) => [...prevState, email]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,20 +38,22 @@ const Login = () => {
       (registeredEmail) => email === registeredEmail
     );
     if (isEmailinArray) {
-      setAccess(true);
+      alert("This email account already exists, proceed to login");
+      history.push("/login");
     } else {
-      alert("user not found, please register");
-      history.push("/");
+      addEmailToArray(email);
+      setAccess(true);
     }
   };
+
   return (
-    <LoginContainer>
-      <LoginBox>
-        <LoginTitle>
-          <h2>Sign in to start</h2>
-        </LoginTitle>
-        <LoginForm onSubmit={handleSubmit}>
-          <LoginInputs>
+    <SignUpContainer>
+      <SignUpBox>
+        <SignUpTitle>
+          <h2>Welcome to The Sign Up page</h2>
+        </SignUpTitle>
+        <SignUpForm onSubmit={handleSubmit}>
+          <SignUpInputs>
             <input
               type='text'
               placeholder='your user here ...'
@@ -56,12 +68,12 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </LoginInputs>
-          <LoginButton type='submit'>Enter here</LoginButton>
-        </LoginForm>
-      </LoginBox>
-    </LoginContainer>
+          </SignUpInputs>
+          <SignUpButton type='submit'>Sign UP </SignUpButton>
+        </SignUpForm>
+      </SignUpBox>
+    </SignUpContainer>
   );
 };
 
-export default Login;
+export default SignUp;

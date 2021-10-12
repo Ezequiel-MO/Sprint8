@@ -4,9 +4,10 @@ import {
   HeaderMenu,
   HomeMenu,
   StarshipMenu,
+  StyledLink,
 } from "./styles";
 import logo from "../../assets/StarwarsLogo.jpg";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const Header = () => {
   const history = useHistory();
@@ -14,7 +15,9 @@ const Header = () => {
     <HeaderContainer>
       <UpperHeader>
         <img src={logo} alt='logo' />
-        <h4>LOG IN // SIGN UP</h4>
+        <StyledLink to='/login'>LOG IN </StyledLink>
+        <p>//</p>
+        <StyledLink to='/'>SIGN UP</StyledLink>
       </UpperHeader>
       <HeaderMenu>
         <HomeMenu>HOME</HomeMenu>
