@@ -9,11 +9,10 @@ import {
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const SignUp = () => {
+const SignUp = ({ isAuth, setIsAuth }) => {
   const history = useHistory();
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
-  const [access, setAccess] = useState(false);
   const [registeredEmails, setRegisteredEmails] = useState(
     JSON.parse(localStorage.getItem("registered emails")) || []
   );
@@ -22,11 +21,13 @@ const SignUp = () => {
     localStorage.setItem("registered emails", JSON.stringify(registeredEmails));
 
   useEffect(() => {
-    access && history.push("/main");
-  }, [access]);
+    isAuth && history.push("/main");
+    // eslint-disable-next-line
+  }, [isAuth]);
 
   useEffect(() => {
     updateLocalStorage();
+    // eslint-disable-next-line
   }, [registeredEmails]);
 
   const addEmailToArray = (email) =>
@@ -42,7 +43,7 @@ const SignUp = () => {
       history.push("/login");
     } else {
       addEmailToArray(email);
-      setAccess(true);
+      setIsAuth(true);
     }
   };
 

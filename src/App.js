@@ -6,12 +6,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SignUp from "./pages/SignUp/SignUp";
 import Login from "./pages/Login/Login";
+import PrivateRoute from "./auth/PrivateRoute";
 
 function App() {
   const [starships, setStarships] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-
+  const [isAuth, setIsAuth] = useState(false);
   const starshipsURL = axios.create({
     baseURL: "https://swapi.dev/api/",
     timeout: 1000,
@@ -44,23 +45,23 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      <Header isAuth={isAuth} />
       <Switch>
         <Route path='/starships/:id'>
           <StarshipView starships={starships} />
         </Route>
-        <Route path='/main'>
+        <PrivateRoute path='/main' isAuth={isAuth}>
           <MainPage
             starships={starships}
             loading={loading}
             setCurrentPage={setCurrentPage}
           />
-        </Route>
+        </PrivateRoute>
         <Route path='/login'>
-          <Login />
+          <Login isAuth={isAuth} setIsAuth={setIsAuth} />
         </Route>
         <Route path='/'>
-          <SignUp />
+          <SignUp isAuth={isAuth} setIsAuth={setIsAuth} />
         </Route>
       </Switch>
     </Router>

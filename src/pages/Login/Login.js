@@ -9,7 +9,7 @@ import {
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const Login = () => {
+const Login = ({ isAuth, setIsAuth }) => {
   const history = useHistory();
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
@@ -19,8 +19,8 @@ const Login = () => {
   );
 
   useEffect(() => {
-    access && history.push("/main");
-  }, [access]);
+    isAuth && history.push("/main");
+  }, [isAuth]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const Login = () => {
       (registeredEmail) => email === registeredEmail
     );
     if (isEmailinArray) {
-      setAccess(true);
+      setIsAuth(true);
     } else {
       alert("user not found, please register");
       history.push("/");

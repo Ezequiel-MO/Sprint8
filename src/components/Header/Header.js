@@ -7,17 +7,29 @@ import {
   StyledLink,
 } from "./styles";
 import logo from "../../assets/StarwarsLogo.jpg";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ isAuth }) => {
   const history = useHistory();
   return (
     <HeaderContainer>
       <UpperHeader>
         <img src={logo} alt='logo' />
-        <StyledLink to='/login'>LOG IN </StyledLink>
+        {isAuth ? (
+          <StyledLink to='/login' onClick={(e) => e.preventDefault()}>
+            LOG IN
+          </StyledLink>
+        ) : (
+          <StyledLink to='/login'>LOG IN</StyledLink>
+        )}
         <p>//</p>
-        <StyledLink to='/'>SIGN UP</StyledLink>
+        {isAuth ? (
+          <StyledLink to='/' onClick={(e) => e.preventDefault()}>
+            SIGN UP
+          </StyledLink>
+        ) : (
+          <StyledLink to='/'>SIGN UP</StyledLink>
+        )}
       </UpperHeader>
       <HeaderMenu>
         <HomeMenu>HOME</HomeMenu>

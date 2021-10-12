@@ -1,6 +1,7 @@
 import { StarshipContainer } from "./styles";
 import StarshipCard from "../../components/StarshipCard/StarshipCard";
 import { useEffect } from "react";
+import { withRouter } from "react-router";
 
 const MainPage = ({ starships, loading, setCurrentPage }) => {
   useEffect(() => {
@@ -29,4 +30,4 @@ const MainPage = ({ starships, loading, setCurrentPage }) => {
   );
 };
 
-export default MainPage;
+export default withRouter(MainPage);
