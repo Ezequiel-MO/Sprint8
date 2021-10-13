@@ -13,13 +13,13 @@ const Login = ({ isAuth, setIsAuth }) => {
   const history = useHistory();
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
-  const [access, setAccess] = useState(false);
   const [registeredEmails, setRegisteredEmails] = useState(
     JSON.parse(localStorage.getItem("registered emails")) || []
   );
 
   useEffect(() => {
     isAuth && history.push("/main");
+    // eslint-disable-next-line
   }, [isAuth]);
 
   const handleSubmit = (e) => {

@@ -2,10 +2,13 @@ import {
   StarshipFullDetailsContainer,
   MainImage,
   Title,
-  Description,
+  Pilots,
   Left,
   Right,
 } from "./styles";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import PilotCard from "../PilotCard/PilotCard";
 
 const StarshipFullDetails = ({
   starship: {
@@ -16,17 +19,44 @@ const StarshipFullDetails = ({
     max_atmosphering_speed,
     length,
     crew,
+    image,
+    pilots,
   },
 }) => {
+  const [pilotData, setPilotData] = useState([]);
+
+  useEffect(() => {
+    console.log("pilot data=>", pilotData);
+  }, [pilotData]);
+
+  useEffect(() => {
+    const getPilots = () => {
+      let responses = pilots.map(async (pilot) => await axios.get(pilot));
+      Promise.all(responses).then((values) => setPilotData(values));
+    };
+    getPilots();
+  }, [pilots]);
+
   return (
     <StarshipFullDetailsContainer>
-      <MainImage></MainImage>
+      <MainImage>
+        <img src={image} alt='starship-pic' />
+      </MainImage>
       <Title>
         <h2>{name.toUpperCase()}</h2>
       </Title>
-      <Description>
-        <p>asdfasdfasdfasdfsadfasdf</p>
-      </Description>
+      <Pilots>
+        <ul>
+          {pilotData.map(({ data: { name, gender, hair_color } }) => (
+            <PilotCard
+              key={name}
+              name={name}
+              gender={gender}
+              hair_color={hair_color}
+            />
+          ))}
+        </ul>
+      </Pilots>
       <Left>
         <h4>model: {model}</h4>
         <h4>cost in credits: {cost_in_credits}</h4>

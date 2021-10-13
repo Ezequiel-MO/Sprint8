@@ -13,9 +13,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [isAuth, setIsAuth] = useState(false);
+
   const starshipsURL = axios.create({
     baseURL: "https://swapi.dev/api/",
-    timeout: 1000,
   });
 
   useEffect(() => {

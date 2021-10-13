@@ -22,7 +22,7 @@ const Header = ({ isAuth }) => {
         ) : (
           <StyledLink to='/login'>LOG IN</StyledLink>
         )}
-        <p>//</p>
+        <p>/ - /</p>
         {isAuth ? (
           <StyledLink to='/' onClick={(e) => e.preventDefault()}>
             SIGN UP
