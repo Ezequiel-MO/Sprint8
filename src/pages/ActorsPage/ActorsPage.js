@@ -1,9 +1,9 @@
-import { StarshipContainer } from "./styles";
+import { ActorsContainer } from "./styles";
 import { useEffect } from "react";
 import { withRouter } from "react-router";
-import StarshipMenu from "../../components/StarshipMenu/StarshipMenu";
+import ActorsCard from "../../components/ActorsCard/ActorsCard";
 
-const MainPage = ({ starships, loading, setCurrentPage }) => {
+const ActorsPage = ({ actors, loading, setCurrentPage }) => {
   useEffect(() => {
     //consultar pq no funciona el evento onScroll
     window.addEventListener("scroll", () => {
@@ -20,14 +20,14 @@ const MainPage = ({ starships, loading, setCurrentPage }) => {
       {loading ? (
         <h1>Loading ...</h1>
       ) : (
-        <StarshipContainer>
-          {starships?.map(({ name, model }) => (
-            <StarshipMenu key={name} name={name} model={model} />
+        <ActorsContainer>
+          {actors?.map(({ name, gender }) => (
+            <ActorsCard key={name} name={name} gender={gender} />
           ))}
-        </StarshipContainer>
+        </ActorsContainer>
       )}
     </>
   );
 };
 
-export default withRouter(MainPage);
+export default withRouter(ActorsPage);

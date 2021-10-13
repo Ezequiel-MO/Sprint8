@@ -1,18 +1,16 @@
 import styled from "styled-components";
 
 export const StarshipCardContainer = styled.div`
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: #333;
-  margin: 1rem 0.5rem;
-  padding-left: 1rem;
-  & h3 {
-    margin-bottom: 0;
-  }
-
-  & h4 {
-    margin-top: 0.5rem;
-  }
+  border-bottom: 2px solid orangered;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+`;
+export const Title = styled.div`
+  grid-column: 1/3;
+`;
+export const Model = styled.div`
+  grid-column: 3/5;
+`;
+export const Manufacturer = styled.div`
+  grid-column: 5/6;
 `;

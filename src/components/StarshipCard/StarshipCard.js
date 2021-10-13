@@ -1,12 +1,20 @@
-import { StarshipCardContainer } from "./styles";
-import { useHistory } from "react-router-dom";
+import { StarshipCardContainer, Title, Model, Manufacturer } from "./styles";
 
-const StarshipCard = ({ name, model }) => {
-  const history = useHistory();
+const StarshipCard = ({ name, model, manufacturer }) => {
   return (
-    <StarshipCardContainer onClick={() => history.push(`/starships/${name}`)}>
-      <h3>{name?.toUpperCase()}</h3>
-      <h4>{model}</h4>
+    <StarshipCardContainer>
+      <Title>
+        <strong>Name: </strong>
+        {name}
+      </Title>
+      <Model>
+        <strong>Model: </strong>
+        {model}
+      </Model>
+      <Manufacturer>
+        <strong>Manufacturer: </strong>
+        {manufacturer}
+      </Manufacturer>
     </StarshipCardContainer>
   );
 };

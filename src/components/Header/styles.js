@@ -56,6 +56,6 @@ export const HomeMenu = styled.div`
     border-bottom: 3px solid blue;
   }
 `;
-export const StarshipMenu = styled(HomeMenu)`
+export const Menu = styled(HomeMenu)`
   border-right: 1px solid #686868;
 `;

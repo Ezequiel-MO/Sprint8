@@ -3,7 +3,7 @@ import {
   UpperHeader,
   HeaderMenu,
   HomeMenu,
-  StarshipMenu,
+  Menu,
   StyledLink,
 } from "./styles";
 import logo from "../../assets/StarwarsLogo.jpg";
@@ -33,9 +33,8 @@ const Header = ({ isAuth }) => {
       </UpperHeader>
       <HeaderMenu>
         <HomeMenu>HOME</HomeMenu>
-        <StarshipMenu onClick={() => history.push("/main")}>
-          STARSHIPS
-        </StarshipMenu>
+        <Menu onClick={() => history.push("/main")}>STARSHIPS</Menu>
+        <Menu onClick={() => history.push("/actors")}>ACTORS</Menu>
       </HeaderMenu>
     </HeaderContainer>
   );
