@@ -12,7 +12,6 @@ const PilotCard = ({ name, gender, hair_color }) => {
         {gender}
       </Gender>
       <HairColor>
-        {" "}
         <strong>Hair Color: </strong>
         {hair_color}
       </HairColor>

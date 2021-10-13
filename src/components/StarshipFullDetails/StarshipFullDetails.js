@@ -1,14 +1,17 @@
 import {
   StarshipFullDetailsContainer,
   MainImage,
+  Description,
   Title,
   Pilots,
   Left,
   Right,
+  Movies,
 } from "./styles";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import PilotCard from "../PilotCard/PilotCard";
+import MovieCard from "../MovieCard/MovieCard";
 
 const StarshipFullDetails = ({
   starship: {
@@ -21,13 +24,27 @@ const StarshipFullDetails = ({
     crew,
     image,
     pilots,
+    films,
   },
 }) => {
   const [pilotData, setPilotData] = useState([]);
+  const [movieData, setMovieData] = useState([]);
 
   useEffect(() => {
     console.log("pilot data=>", pilotData);
   }, [pilotData]);
+
+  useEffect(() => {
+    console.log("movie data=>", movieData);
+  }, [movieData]);
+
+  useEffect(() => {
+    const getMovies = () => {
+      let responses = films.map(async (film) => await axios.get(film));
+      Promise.all(responses).then((values) => setMovieData(values));
+    };
+    getMovies();
+  }, [films]);
 
   useEffect(() => {
     const getPilots = () => {
@@ -45,7 +62,13 @@ const StarshipFullDetails = ({
       <Title>
         <h2>{name.toUpperCase()}</h2>
       </Title>
+      <Description>
+        {movieData.map(({ data: { title, opening_crawl } }) => (
+          <p key={title}>{opening_crawl}</p>
+        ))}
+      </Description>
       <Pilots>
+        <h2>Pilots</h2>
         <ul>
           {pilotData.map(({ data: { name, gender, hair_color } }) => (
             <PilotCard
@@ -57,6 +80,19 @@ const StarshipFullDetails = ({
           ))}
         </ul>
       </Pilots>
+      <Movies>
+        <h2>Movies</h2>
+        <ul>
+          {movieData.map(({ data: { title, director, release_date } }) => (
+            <MovieCard
+              key={title}
+              title={title}
+              director={director}
+              release_date={release_date}
+            />
+          ))}
+        </ul>
+      </Movies>
       <Left>
         <h4>model: {model}</h4>
         <h4>cost in credits: {cost_in_credits}</h4>
