@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# Starwars Webiste
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto a consistido en realizar una replica del sitio web de Starwars.
 
-## Available Scripts
+//enlace web starwars
 
-In the project directory, you can run:
+## Comenzando 🚀
 
-### `yarn start`
+git clone
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Entra en la carpeta del proyecto
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Instalación 🔧
 
-### `yarn test`
+Instala el proyecto con yarn
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Escribe yarn en tu terminal
 
-### `yarn build`
+```
+yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Si no tienes yarn instalado, o quieres utilizar npm, elimina yarn.lock, y escribe en tu terminal
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm install
 
-### `yarn eject`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Objetivos
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Despliegue 📦
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Para un deploy rápido, simplemente ejectua
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+yarn build
+```
 
-## Learn More
+y arrastra la carpeta build a netlify.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Construido con 🛠️
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [create-react-app](https://create-react-app.dev/)
 
-### Code Splitting
+## Recursos API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [Starwars API](https://swapi.dev/)
 
-### Analyzing the Bundle Size
+### GET Method
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Ships**
 
-### Making a Progressive Web App
+Para obtener el listado de naves
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+https://swapi.dev/api/ships/?page
 
-### Advanced Configuration
+###### Params
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Optional
 
-### Deployment
+Número de página
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**Films**
 
-### `yarn build` fails to minify
+Para obtener el listado de peliculas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://swapi.dev/api/films/?page
+
+###### Params
+
+Optional
+
+Número de página
+
+**People**
+
+Para obtener el listado de actores
+
+https://swapi.dev/api/people/?page
+
+###### Params
+
+Optional
+
+Número de página
+
+Para ver más detalles de la respuesta de la API visita [documentación API](https://swapi.dev/documentation)
+
+## Autores ✒️
+
+- **IT Academy** - [villanuevand](https://github.com/villanuevand)
+- **Ezequiel Martinez Oliver** -
+
+También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto.
+
+## Licencia 📄
+
+Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
+
+## Expresiones de Gratitud 🎁
+
+- Comenta a otros sobre este proyecto 📢
+- Invita una cerveza 🍺 o un café ☕ a alguien del equipo.
+- Da las gracias públicamente 🤓.
+- etc.
+
+---
+
+⌨️ con ❤️ por [Ezequiel Martinez Oliver](https://github.com/Ezequiel-MO) 😊
